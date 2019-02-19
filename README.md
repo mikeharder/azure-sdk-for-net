@@ -13,7 +13,7 @@ This repo contains the libraries to allow you to easily leverage Azure from your
 
 For a full list of packages built from this repository, please see our [list of .NET SDK packages](https://github.com/Azure/azure-sdk-for-net/tree/master/Documentation/sdk-for-net-packages.md).
 
-### Target Frameworks:
+### Target Frameworks::
 
 * .NET Framework 4.5.2
 * Netstandard 1.4
