@@ -16,11 +16,19 @@ namespace Azure.Template.Perf
 {
     public class Program
     {
+        private const int _eventSize = 1024;
+        private static readonly byte[] _eventBody = new byte[_eventSize];
+
         private static readonly string _storageConnectionString = Environment.GetEnvironmentVariable("STORAGE_CONNECTION_STRING");
-        private static readonly string _blobContainerName = Environment.GetEnvironmentVariable("BLOB_CONTAINER_NAME");
 
         private static readonly string _eventHubsConnectionString = Environment.GetEnvironmentVariable("EVENT_HUBS_CONNECTION_STRING");
         private static readonly string _eventHubName = Environment.GetEnvironmentVariable("EVENT_HUB_NAME");
+
+        static Program()
+        {
+            var random = new Random(0);
+            random.NextBytes(_eventBody);
+        }
 
         public static Task Main(string[] args)
         {
@@ -51,8 +59,7 @@ namespace Azure.Template.Perf
 
                     for (; eventsSent < count; ++eventsSent)
                     {
-                        var eventBody = new BinaryData($"Event Number: { eventsSent }");
-                        var eventData = new EventData(eventBody);
+                        var eventData = new EventData(_eventBody);
 
                         if (!eventBatch.TryAdd(eventData))
                         {
