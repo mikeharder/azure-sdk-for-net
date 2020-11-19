@@ -107,7 +107,9 @@ namespace Azure.Template.Perf
                 storageClient,
                 EventHubConsumerClient.DefaultConsumerGroupName,
                 _eventHubsConnectionString,
-                _eventHubName);
+                _eventHubName,
+                new EventProcessorClientOptions() { LoadBalancingStrategy = LoadBalancingStrategy.Greedy }
+                );
 
             int eventsProcessed = 0;
             int errorsProcessed = 0;
