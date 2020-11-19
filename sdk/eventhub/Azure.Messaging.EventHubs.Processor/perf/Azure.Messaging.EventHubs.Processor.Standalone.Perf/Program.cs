@@ -115,13 +115,22 @@ namespace Azure.Template.Perf
             int errorsProcessed = 0;
 
             using var cancellationSource = new CancellationTokenSource();
+            var sw = new Stopwatch();
 
             Task processEventHandler(ProcessEventArgs args)
             {
-                if (Interlocked.Increment(ref eventsProcessed) >= count)
+                var currentProcessed = Interlocked.Increment(ref eventsProcessed);
+
+                if (currentProcessed == 1)
+                {
+                    sw.Start();
+                }
+
+                if (currentProcessed >= count)
                 {
                     cancellationSource.Cancel();
                 }
+
                 return Task.CompletedTask;
             }
 
@@ -136,7 +145,6 @@ namespace Azure.Template.Perf
                 processor.ProcessEventAsync += processEventHandler;
                 processor.ProcessErrorAsync += processErrorHandler;
 
-                var sw = Stopwatch.StartNew();
                 try
                 {
                     await processor.StartProcessingAsync(cancellationSource.Token);
