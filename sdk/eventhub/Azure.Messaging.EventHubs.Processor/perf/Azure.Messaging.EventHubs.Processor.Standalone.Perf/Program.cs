@@ -133,8 +133,9 @@ namespace Azure.Template.Perf
                     sw.Start();
                 }
 
-                if (currentProcessed >= count)
+                if (currentProcessed == count)
                 {
+                    sw.Stop();
                     cancellationSource.Cancel();
                 }
 
@@ -164,7 +165,6 @@ namespace Azure.Template.Perf
                 }
                 finally
                 {
-                    sw.Stop();
                     var eventsPerSecond = eventsProcessed / sw.Elapsed.TotalSeconds;
                     Console.WriteLine($"Processed {eventsProcessed:N0} events in {sw.Elapsed.TotalSeconds:N2} seconds ({eventsPerSecond:N0} events/sec)");
 
