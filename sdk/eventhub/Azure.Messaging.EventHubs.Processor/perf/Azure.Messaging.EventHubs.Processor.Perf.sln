@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30711.63
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Azure.Messaging.EventHubs.Processor.Perf", "Azure.Messaging.EventHubs.Processor.Perf.csproj", "{4FE5C5E6-5EEE-4377-868D-62DB9B6CB7C4}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Azure.Messaging.EventHubs.Processor", "..\src\Azure.Messaging.EventHubs.Processor.csproj", "{73971711-2B93-4E85-9B81-17DDA01B79BB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Azure.Test.Perf", "..\..\..\..\common\Perf\Azure.Test.Perf\Azure.Test.Perf.csproj", "{A5285723-A2EB-41B3-9DB0-BAF1D7229B18}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Azure.Messaging.EventHubs.Processor.Perf", "Azure.Messaging.EventHubs.Processor.Perf\Azure.Messaging.EventHubs.Processor.Perf.csproj", "{91651A35-CCC9-4531-9B88-A699400ADBEA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Azure.Messaging.EventHubs.Processor.Standalone.Perf", "Azure.Messaging.EventHubs.Processor.Standalone.Perf\Azure.Messaging.EventHubs.Processor.Standalone.Perf.csproj", "{C1337F26-24D3-475D-A7FD-BD84B546EC88}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4FE5C5E6-5EEE-4377-868D-62DB9B6CB7C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4FE5C5E6-5EEE-4377-868D-62DB9B6CB7C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4FE5C5E6-5EEE-4377-868D-62DB9B6CB7C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4FE5C5E6-5EEE-4377-868D-62DB9B6CB7C4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{73971711-2B93-4E85-9B81-17DDA01B79BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{73971711-2B93-4E85-9B81-17DDA01B79BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73971711-2B93-4E85-9B81-17DDA01B79BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +25,14 @@ Global
 		{A5285723-A2EB-41B3-9DB0-BAF1D7229B18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5285723-A2EB-41B3-9DB0-BAF1D7229B18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5285723-A2EB-41B3-9DB0-BAF1D7229B18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91651A35-CCC9-4531-9B88-A699400ADBEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91651A35-CCC9-4531-9B88-A699400ADBEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91651A35-CCC9-4531-9B88-A699400ADBEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91651A35-CCC9-4531-9B88-A699400ADBEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1337F26-24D3-475D-A7FD-BD84B546EC88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1337F26-24D3-475D-A7FD-BD84B546EC88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1337F26-24D3-475D-A7FD-BD84B546EC88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1337F26-24D3-475D-A7FD-BD84B546EC88}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
