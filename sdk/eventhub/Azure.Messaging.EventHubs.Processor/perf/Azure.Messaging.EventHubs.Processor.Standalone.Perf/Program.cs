@@ -159,7 +159,7 @@ namespace Azure.Template.Perf
                 {
                     sw.Stop();
                     var eventsPerSecond = eventsProcessed / sw.Elapsed.TotalSeconds;
-                    Console.WriteLine($"Processed {eventsProcessed} events in {sw.Elapsed.TotalSeconds} seconds ({eventsPerSecond:N2} events/sec)");
+                    Console.WriteLine($"Processed {eventsProcessed:N0} events in {sw.Elapsed.TotalSeconds:N2} seconds ({eventsPerSecond:N0} events/sec)");
 
                     // This may take up to the length of time defined
                     // as part of the configured TryTimeout of the processor;
