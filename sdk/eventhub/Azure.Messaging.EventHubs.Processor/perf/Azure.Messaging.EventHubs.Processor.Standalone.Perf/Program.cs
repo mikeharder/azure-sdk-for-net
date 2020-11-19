@@ -51,8 +51,6 @@ namespace Azure.Template.Perf
 
                     for (; eventsSent < count; ++eventsSent)
                     {
-                        Console.WriteLine(eventsSent);
-
                         var eventBody = new BinaryData($"Event Number: { eventsSent }");
                         var eventData = new EventData(eventBody);
 
@@ -69,6 +67,8 @@ namespace Azure.Template.Perf
                             break;
                         }
                     }
+
+                    Console.WriteLine(eventsSent);
 
                     // When the producer publishes the event, it will receive an
                     // acknowledgment from the Event Hubs service; so long as there is no
