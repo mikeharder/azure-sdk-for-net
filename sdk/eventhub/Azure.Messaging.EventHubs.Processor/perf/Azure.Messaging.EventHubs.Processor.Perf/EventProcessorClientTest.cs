@@ -18,7 +18,6 @@ namespace Azure.Template.Perf
         private static readonly string _eventHubsConnectionString = Environment.GetEnvironmentVariable("EVENT_HUBS_CONNECTION_STRING");
         private static readonly string _eventHubName = Environment.GetEnvironmentVariable("EVENT_HUB_NAME");
 
-        private readonly byte[] _eventBody;
         private readonly BlobContainerClient _storageClient;
         private readonly EventProcessorClient _eventProcessorClient;
         private readonly CancellationTokenSource _eventProcessorClientCts;
@@ -28,10 +27,6 @@ namespace Azure.Template.Perf
 
         public EventProcessorClientTest(EventProcessorClientTestOptions options) : base(options)
         {
-            _eventBody = new byte[options.Size];
-            var random = new Random(0);
-            random.NextBytes(_eventBody);
-
             var containerName = Guid.NewGuid().ToString();
             _storageClient = new BlobContainerClient(
                 _storageConnectionString,
@@ -93,11 +88,11 @@ namespace Azure.Template.Perf
 
         public override async Task RunAsync(CancellationToken cancellationToken)
         {
-            await _eventsProcessed.WaitAsync();
+            await _eventsProcessed.WaitAsync(cancellationToken);
             _nextEventsToProcess.Release();
         }
 
-        public class EventProcessorClientTestOptions : SizeOptions
+        public class EventProcessorClientTestOptions : PerfOptions
         {
         }
     }
