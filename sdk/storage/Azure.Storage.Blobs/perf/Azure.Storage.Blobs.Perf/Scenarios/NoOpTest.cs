@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Azure.Storage.Blobs.Perf.Scenarios
 {
     // Used for measuring the overhead of the perf framework with the fastest possible test
-    public class NoOpTest : PerfTest<PerfOptions>
+    public class NoOpTest : ServiceTest<PerfOptions>
     {
         public NoOpTest(PerfOptions options) : base(options)
         {
